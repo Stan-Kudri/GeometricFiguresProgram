@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace GeometricFigures.Figures
 {
-    public class Ellipse : Primitive
+    /*public class Ellipse : Primitive
     {
-        private int _a;
-        private int _b;
         private float _largerRadius;
         private float _smallerRadius;
 
@@ -68,5 +66,5 @@ namespace GeometricFigures.Figures
                 _smallerRadius = _a;
             }
         }
-    }
+    }*/
 }

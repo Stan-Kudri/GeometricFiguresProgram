@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GeometricFigures;
 
 namespace GeometricFigures.Figures
 {
-    public class IsoscelesRightTriangle : Primitive
+    /*class IsoscelesRightTriangle : Primitive
     {
-        private int _a;
-        private int _b;
         private double _c;
 
         public int A
         {
-            get { return _a; }
-            set { _a = value; }
+            get { return A; }
+            set { A = value; }
         }
 
         public int B
         {
-            get { return _b; }
-            set { _b = value; }
+            get { return B; }
+            set { B = value; }
         }
 
         public string Name
@@ -34,26 +33,24 @@ namespace GeometricFigures.Figures
             get
             {
                 DefinitionHypotenuse();
-                return (_a * _b) / 2;
+                return (A * B) / 2;
             }
         }
-        public IsoscelesRightTriangle(int a, int b)
+        public IsoscelesRightTriangle(int A, int B):base(A, B)
         {
-            _a = a;
-            _b = b;
         }
 
         public double Perimeter()
         {
             DefinitionHypotenuse();
-            return _a + _b + _c;
+            return A + B + _c;
         }
 
         private void DefinitionHypotenuse()
         {
-            if (_a <= 0 || _b <= 0)
+            if (A <= 0 || B <= 0)
                 throw new ArgumentException("Parameters are invalid");
-            _c = Math.Sqrt(_a * _a + _b * _b);
+            _c = Math.Sqrt(A * A + B * B);
         }
-    }
+    }*/
 }

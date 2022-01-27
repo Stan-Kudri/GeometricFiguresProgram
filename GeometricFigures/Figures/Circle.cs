@@ -6,30 +6,19 @@ using System.Threading.Tasks;
 
 namespace GeometricFigures.Figures
 {
-    public class Circle: Primitive
+    class Circle: Primitive
     {
-        private int _a;
-        private int _b;
         private float _radius;
 
-        public int A
-        { 
-            get { return _a; }
-            set { _a = value; }
-        }
+        public int a => A;
+        public int b => B;
 
-        public int B
-        {
-            get { return _b; }
-            set { _b = value; }
-        }
-
-        public string Name 
+        public override string Name 
         {
             get { return "Circle"; }
         }
         
-        public double Area
+        public override double Area
         {
             get 
             {
@@ -38,10 +27,9 @@ namespace GeometricFigures.Figures
             }           
         }
 
-        public Circle(int a, int b)
+        public Circle(int a, int b):base ( a, b )
         {
-            _a = a;
-            _b = b;
+            
         }
 
         public double Perimeter()
@@ -52,12 +40,12 @@ namespace GeometricFigures.Figures
 
         private void DefineRadius()
         {
-            if (_a <= 0 || _b <= 0)
+            if (A <= 0 || B <= 0)
                 throw new ArgumentException("Parameters are invalid");
-            if (_a > _b || _a == _b)
-                _radius = _b / 2;
-            else
-                _radius = _a / 2;
+            if (A > B || A == B)
+                _radius = B / 2;
+            if(B > A)
+                _radius = A / 2;
         }
     }
 }

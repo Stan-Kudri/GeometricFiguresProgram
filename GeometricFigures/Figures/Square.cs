@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace GeometricFigures.Figures
 {
-    public class Square : Primitive
+    /*public class Square : Primitive
     {
-        private int _a;
-        private int _b;
         private double _minimumSide;
 
         public int A
@@ -37,16 +35,14 @@ namespace GeometricFigures.Figures
                 return Math.Pow(_minimumSide, 2);
             }
         }
-        public Square(int a, int b)
+        public Square(int A, int B) : base(A, B)
         {
-            _a = a;
-            _b = b;
         }
 
         public double Diagonal()
         {
             DefinitionMinimumSide();
-            return Math.Sqrt(_a * _a + _b * _b);
+            return Math.Sqrt(A * A + _b * _b);
         }
 
         private void DefinitionMinimumSide()
@@ -58,5 +54,5 @@ namespace GeometricFigures.Figures
             else
                 _minimumSide = _b;
         }
-    }
+    }*/
 }
