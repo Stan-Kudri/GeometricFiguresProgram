@@ -8,18 +8,6 @@ namespace GeometricFigures.Figures
 {
     public class Ellipse : Primitive
     {
-        public new int A
-        {
-            get { return base.A; }
-            set { base.A = value; }
-        }
-
-        public new int B
-        {
-            get { return base.B; }
-            set { base.B = value; }
-        }
-
         public override string Name => "Ellipse";
 
         public override double Area => Math.PI * (A / 2) * (B / 2);
@@ -33,9 +21,7 @@ namespace GeometricFigures.Figures
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(Name).Append(";").
-                Append($"Area = {Area}").Append(";").
-                Append($"Summ Radius = {SummRadius()}").Append(";");
+            stringBuilder.AppendFormat("{0}: Area = {1}; Summ Radius = {2};", Name, Area, SummRadius());
             return stringBuilder.ToString();
         }
     }

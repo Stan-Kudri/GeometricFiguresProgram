@@ -2,14 +2,15 @@
 using GeometricFigures.Figures;
 using System.Reflection;
 
-Circle circle = new Circle(2, 6);
-Primitive primitive = new Square(2, 6);
-Console.WriteLine(primitive.Name);
-Console.WriteLine(primitive.Area);
-Console.WriteLine(primitive.ToString());
-primitive.A = 4;
-Console.WriteLine(primitive.Name);
-Console.WriteLine(primitive.Area);
-Console.WriteLine(primitive.ToString());
-Type[] types = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.BaseType == typeof(Primitive)).ToArray();
-Primitive[] array = new Primitive[types.Length];
+var array = new Primitive[]
+{
+    new Circle(2,6),
+    new Ellipse(2,6),
+    new IsoscelesRightTriangle(2,6),
+    new Square(2,6),
+};
+
+foreach(var item in array)
+{
+    Console.WriteLine(item.ToString());
+}

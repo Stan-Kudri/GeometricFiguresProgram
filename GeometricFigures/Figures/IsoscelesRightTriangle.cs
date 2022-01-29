@@ -9,18 +9,6 @@ namespace GeometricFigures.Figures
 {
     public class IsoscelesRightTriangle : Primitive
     {
-        public new int A
-        {
-            get { return base.A; }
-            set { base.A = value; }
-        }
-
-        public new int B
-        {
-            get { return base.B; }
-            set { base.B = value; }
-        }
-
         public override string Name => "Isosceles Right Triangle";
 
         public override double Area => (A * B) / 2;
@@ -29,24 +17,15 @@ namespace GeometricFigures.Figures
         {
         }
 
-        public double Perimeter()
-        {
-            var hypotenuse = Hypotenuse();
-            return A + B + hypotenuse;
-        }
+        public double Perimeter() => A + B + Hypotenuse;
 
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(Name).Append(";").
-                Append($"Area = {Area}").Append(";").
-                Append($"Perimeter = {Perimeter()}").Append(";");
+            stringBuilder.AppendFormat("{0}: Area = {1}; Perimetr = {2};", Name, Area, Perimeter());
             return stringBuilder.ToString();
         }
 
-        private float Hypotenuse()
-        {
-            return (float)Math.Sqrt(A * A + B * B);
-        }
+        private float Hypotenuse => (float)Math.Sqrt(A * A + B * B);
     }
 }
