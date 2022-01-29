@@ -6,46 +6,51 @@ using System.Threading.Tasks;
 
 namespace GeometricFigures.Figures
 {
-    class Circle: Primitive
+    public class Circle: Primitive
     {
-        private float _radius;
-
-        public int a => A;
-        public int b => B;
-
-        public override string Name 
+        public new int A
         {
-            get { return "Circle"; }
+            get { return base.A; }
+            set { base.A = value; }
         }
-        
+
+        public new int B
+        {
+            get { return base.B; }
+            set { base.B = value; }
+        }
+
+        public override string Name => "Circle";
+
         public override double Area
         {
             get 
             {
-                DefineRadius();
-                return Math.PI * _radius * _radius;
-            }           
+                var radius = Radius();
+                return Math.PI * radius * radius;
+            }
         }
 
-        public Circle(int a, int b):base ( a, b )
+        public Circle(int a, int b) : base(a, b)
         {
-            
+
         }
 
         public double Perimeter()
         {
-            DefineRadius();
-            return 2 * Math.PI * _radius;            
+            var radius = Radius();
+            return 2 * Math.PI * radius;            
         }
 
-        private void DefineRadius()
+        public override string ToString()
         {
-            if (A <= 0 || B <= 0)
-                throw new ArgumentException("Parameters are invalid");
-            if (A > B || A == B)
-                _radius = B / 2;
-            if(B > A)
-                _radius = A / 2;
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(Name).Append(";").
+                Append($"Area = {Area}").Append(";").
+                Append($"Perimetr = {Perimeter()}").Append(";");
+            return stringBuilder.ToString();
         }
+
+        private float Radius() => B > A ? (float)A / 2 : (float)B / 2;
     }
 }

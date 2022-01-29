@@ -6,22 +6,44 @@ using System.Threading.Tasks;
 
 namespace GeometricFigures
 {
-    abstract class Primitive
+    public abstract class Primitive
     {
-        protected int A;
-        protected int B;
+        private int _a;
+        private int _b;
+
+        public int A
+        {
+            get { return _a; }
+            set 
+            {
+                if (value <= 0)
+                    throw new ArgumentException("Parameters are invalid");
+                _a = value; 
+            }
+        }
+
+        public int B
+        {
+            get { return _b; }
+            set 
+            {
+                if (value <= 0)
+                    throw new ArgumentException("Parameters are invalid");
+                _b = value; 
+            }
+        }
+
+        public abstract double Area { get; }
+
+        public abstract string Name { get; }
 
         public Primitive( int a, int b)
         {
-            this.A = a;
-            this.B = b;
+            if (a <= 0 || b <= 0)
+                throw new ArgumentException("Parameters are invalid");
+            _a = a;
+            _b = b;
         }
 
-        public abstract double Area
-        {
-            get;
-        }
-
-        public abstract string Name { get;}
     }
 }

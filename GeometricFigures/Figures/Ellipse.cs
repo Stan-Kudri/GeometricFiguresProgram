@@ -6,65 +6,37 @@ using System.Threading.Tasks;
 
 namespace GeometricFigures.Figures
 {
-    /*public class Ellipse : Primitive
+    public class Ellipse : Primitive
     {
-        private float _largerRadius;
-        private float _smallerRadius;
-
-        public int A
+        public new int A
         {
-            get { return _a; }
-            set { _a = value; }
+            get { return base.A; }
+            set { base.A = value; }
         }
 
-        public int B
+        public new int B
         {
-            get { return _b; }
-            set { _b = value; }
+            get { return base.B; }
+            set { base.B = value; }
         }
 
-        public string Name
+        public override string Name => "Ellipse";
+
+        public override double Area => Math.PI * (A / 2) * (B / 2);
+
+        public Ellipse(int a, int b) : base(a, b)
         {
-            get { return "Circle"; }
         }
 
-        public double Area
-        {
-            get
-            {
-                DefineRadius();
-                return Math.PI * _largerRadius * _smallerRadius;
-            }
-        }
+        public double SummRadius() => (A / 2) + (B / 2);
 
-        public Ellipse(int a, int b)
+        public override string ToString()
         {
-            _a = a;
-            _b = b;
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(Name).Append(";").
+                Append($"Area = {Area}").Append(";").
+                Append($"Summ Radius = {SummRadius()}").Append(";");
+            return stringBuilder.ToString();
         }
-
-        public double SummRadius()
-        {
-            DefineRadius();
-            return _largerRadius + _smallerRadius;
-        }
-
-        private void DefineRadius()
-        {
-            if (_a <= 0 || _b <= 0)
-                throw new ArgumentException("Parameters are invalid");
-            if (_a == _b)
-                _largerRadius = _smallerRadius = _a;
-            if (_a > _b)
-            {
-                _largerRadius = _a;
-                _smallerRadius = _b;
-            }
-            else
-            {
-                _largerRadius = _b;
-                _smallerRadius = _a;
-            }
-        }
-    }*/
+    }
 }

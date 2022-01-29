@@ -6,53 +6,49 @@ using System.Threading.Tasks;
 
 namespace GeometricFigures.Figures
 {
-    /*public class Square : Primitive
+    public class Square : Primitive
     {
-        private double _minimumSide;
-
-        public int A
+        public new int A
         {
-            get { return _a; }
-            set { _a = value; }
+            get { return base.A; }
+            set 
+            {
+                base.A = value; 
+            }
         }
 
-        public int B
+        public new int B
         {
-            get { return _b; }
-            set { _b = value; }
+            get { return base.B; }
+            set { base.B = value; }
         }
 
-        public string Name
-        {
-            get { return "Square"; }
-        }
+        public override string Name => "Square";
 
-        public double Area
+        public override double Area
         {
             get
             {
-                DefinitionMinimumSide();
-                return Math.Pow(_minimumSide, 2);
+                var minSide = MinimumSide();
+                return Math.Pow(minSide, 2);
             }
         }
+
         public Square(int A, int B) : base(A, B)
         {
         }
 
-        public double Diagonal()
+        public double Diagonal() => Math.Sqrt(A * A + B * B);
+
+        public override string ToString()
         {
-            DefinitionMinimumSide();
-            return Math.Sqrt(A * A + _b * _b);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(Name).Append(";").
+                Append($"Area = {Area}").Append(";").
+                Append($"Diagonal = {Diagonal()}").Append(";");
+            return stringBuilder.ToString();
         }
 
-        private void DefinitionMinimumSide()
-        {
-            if (_a <= 0 || _b <= 0)
-                throw new ArgumentException("Parameters are invalid");
-            if (_a <= _b)
-                _minimumSide = _a;
-            else
-                _minimumSide = _b;
-        }
-    }*/
+        private int MinimumSide() => A > B ? B : A;
+    }
 }

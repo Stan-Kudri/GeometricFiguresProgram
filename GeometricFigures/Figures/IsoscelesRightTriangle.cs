@@ -7,50 +7,46 @@ using GeometricFigures;
 
 namespace GeometricFigures.Figures
 {
-    /*class IsoscelesRightTriangle : Primitive
+    public class IsoscelesRightTriangle : Primitive
     {
-        private double _c;
-
-        public int A
+        public new int A
         {
-            get { return A; }
-            set { A = value; }
+            get { return base.A; }
+            set { base.A = value; }
         }
 
-        public int B
+        public new int B
         {
-            get { return B; }
-            set { B = value; }
+            get { return base.B; }
+            set { base.B = value; }
         }
 
-        public string Name
-        {
-            get { return "Isosceles Right Triangle"; }
-        }
+        public override string Name => "Isosceles Right Triangle";
 
-        public double Area
-        {
-            get
-            {
-                DefinitionHypotenuse();
-                return (A * B) / 2;
-            }
-        }
+        public override double Area => (A * B) / 2;
+
         public IsoscelesRightTriangle(int A, int B):base(A, B)
         {
         }
 
         public double Perimeter()
         {
-            DefinitionHypotenuse();
-            return A + B + _c;
+            var hypotenuse = Hypotenuse();
+            return A + B + hypotenuse;
         }
 
-        private void DefinitionHypotenuse()
+        public override string ToString()
         {
-            if (A <= 0 || B <= 0)
-                throw new ArgumentException("Parameters are invalid");
-            _c = Math.Sqrt(A * A + B * B);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(Name).Append(";").
+                Append($"Area = {Area}").Append(";").
+                Append($"Perimeter = {Perimeter()}").Append(";");
+            return stringBuilder.ToString();
         }
-    }*/
+
+        private float Hypotenuse()
+        {
+            return (float)Math.Sqrt(A * A + B * B);
+        }
+    }
 }
