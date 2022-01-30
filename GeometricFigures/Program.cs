@@ -12,5 +12,5 @@ var array = new Primitive[]
 
 foreach(var item in array)
 {
-    Console.WriteLine(item.ToString());
+    Console.WriteLine(item);
 }

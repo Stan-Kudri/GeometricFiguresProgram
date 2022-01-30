@@ -18,11 +18,6 @@ namespace GeometricFigures.Figures
 
         public double SummRadius() => (A / 2) + (B / 2);
 
-        public override string ToString()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendFormat("{0}: Area = {1}; Summ Radius = {2};", Name, Area, SummRadius());
-            return stringBuilder.ToString();
-        }
+        public override string ToString() => string.Format("{0}: Area = {1}; Summ Radius = {2};", Name, Area, SummRadius());
     }
 }

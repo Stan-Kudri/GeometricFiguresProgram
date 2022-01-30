@@ -17,7 +17,7 @@ namespace GeometricFigures
             set 
             {
                 if (value <= 0)
-                    throw new ArgumentException("Parameter Greater than Zero");
+                    throw new ArgumentException("Parameter Must Be Greater Than Zero");
                 _a = value; 
             }
         }
@@ -28,7 +28,7 @@ namespace GeometricFigures
             set 
             {
                 if (value <= 0)
-                    throw new ArgumentException("Parameter Greater than Zero");
+                    throw new ArgumentException("Parameter Must Be Greater Than Zero");
                 _b = value; 
             }
         }
@@ -40,7 +40,7 @@ namespace GeometricFigures
         public Primitive( int a, int b)
         {
             if (a <= 0 || b <= 0)
-                throw new ArgumentException("Parameter Greater than Zero");
+                throw new ArgumentException("Parameter Must Be Greater Than Zero");
             _a = a;
             _b = b;
         }

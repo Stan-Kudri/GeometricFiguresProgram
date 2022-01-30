@@ -12,6 +12,8 @@ namespace GeometricFigures.Figures
 
         public override double Area => Math.PI * Radius * Radius;
 
+        private float Radius => B > A ? (float)A / 2 : (float)B / 2;
+
         public Circle(int a, int b) : base(a, b)
         {
 
@@ -19,13 +21,7 @@ namespace GeometricFigures.Figures
 
         public double Perimeter() => 2 * Math.PI * Radius;
 
-        public override string ToString()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendFormat("{0}: Area = {1}; Perimetr = {2};", Name, Area, Perimeter());
-            return stringBuilder.ToString();
-        }
+        public override string ToString() => string.Format("{0}: Area = {1}; Perimetr = {2};", Name, Area, Perimeter());
 
-        private float Radius => B > A ? (float)A / 2 : (float)B / 2;
     }
 }

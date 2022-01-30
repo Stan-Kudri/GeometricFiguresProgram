@@ -12,19 +12,14 @@ namespace GeometricFigures.Figures
 
         public override double Area => Math.Pow(MinimumSide, 2);
 
+        private int MinimumSide => A > B ? B : A;
+
         public Square(int A, int B) : base(A, B)
         {
         }
 
         public double Diagonal() => Math.Sqrt(A * A + B * B);
 
-        public override string ToString()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendFormat("{0}: Area = {1}; Diagonal = {2};", Name, Area, Diagonal());
-            return stringBuilder.ToString();
-        }
-
-        private int MinimumSide => A > B ? B : A;
+        public override string ToString() => string.Format("{0}: Area = {1}; Diagonal = {2};", Name, Area, Diagonal());
     }
 }
